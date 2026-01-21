@@ -70,8 +70,8 @@ const App = () => {
     setMenuItems(newItems);
   };
 
-  return (
-    <main id="main">
+ return (
+    <div id="main"> 
       <section className="menu-section">
         <div className="title">
           <h2>Our Menu</h2>
@@ -79,25 +79,17 @@ const App = () => {
         </div>
 
         <div className="btn-container">
-          <button type="button" className="filter-btn" onClick={() => filterItems('all')}>
-            All
-          </button>
-          <button type="button" className="filter-btn" id="filter-btn-1" onClick={() => filterItems('breakfast')}>
-            Breakfast
-          </button>
-          <button type="button" className="filter-btn" id="filter-btn-2" onClick={() => filterItems('lunch')}>
-            Lunch
-          </button>
-          <button type="button" className="filter-btn" id="filter-btn-3" onClick={() => filterItems('shakes')}>
-            Shakes
-          </button>
+          <button type="button" className="filter-btn" onClick={() => filterItems('all')}>All</button>
+          <button type="button" className="filter-btn" id="filter-btn-1" onClick={() => filterItems('breakfast')}>Breakfast</button>
+          <button type="button" className="filter-btn" id="filter-btn-2" onClick={() => filterItems('lunch')}>Lunch</button>
+          <button type="button" className="filter-btn" id="filter-btn-3" onClick={() => filterItems('shakes')}>Shakes</button>
         </div>
 
         <div className="section-center">
           {menuItems.map((item) => {
-            const { id, title, img, desc, price, testId } = item;
+            const { id, title, img, desc, price, category } = item;
             return (
-              <article key={id} className="menu-item" data-test-id={testId}>
+              <article key={id} className="menu-item" data-test-id={`menu-item-${category}`}>
                 <img src={img} alt={title} className="photo" />
                 <div className="item-info">
                   <header>
@@ -111,7 +103,7 @@ const App = () => {
           })}
         </div>
       </section>
-    </main>
+    </div>
   );
 };
 
